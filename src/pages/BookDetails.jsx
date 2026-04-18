@@ -2,14 +2,16 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 
 const BookDetails = () => {
-    const { id } = useParams();
-    console.log(id, "id");
+
+    const { bookId : bookParamsId} = useParams();
+    console.log(bookParamsId, "bookId");
 
     const books = useLoaderData();
     console.log(books)
 
-    const expectedBook = books.find((book) => book.id = id)
+    const expectedBook = books.find((book) => book.bookId === Number( bookParamsId));
     console.log(expectedBook)
+
     const { bookId, category, rating, totalPages, image, author, bookName, review, tags } = expectedBook;
     return (
         
@@ -21,7 +23,7 @@ const BookDetails = () => {
             </figure>
 
             <div className="card-body">
-                <h2 className="card-title text-3xl">{bookName}!</h2>
+                <h2 className="card-title text-3xl">{bookName}</h2>
                 <p>{author}</p>
                 <p>{review}</p>
 
