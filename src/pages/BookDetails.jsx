@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { BookContext } from '../context/BookProvider';
+// import { ToastContainer } from 'react-toastify';
 // import { BookContext } from '../context/BookProvider';
 
 
@@ -15,15 +16,12 @@ const BookDetails = () => {
 
     const expectedBook = books.find((book) => book.bookId === Number(bookParamsId));
     // console.log(expectedBook)
-
     const { bookId, image, author, bookName, review, tags } = expectedBook;
 
 
 
-     const {handleMarkread, storeBooks} = useContext(BookContext)
+     const {handleMarkread, storeBooks, handleWishlist} = useContext(BookContext)
      console.log(handleMarkread , storeBooks,"bookContext")
-
-
 
 
 
@@ -50,9 +48,10 @@ const BookDetails = () => {
                 </div>
                 <div className="card-actions">
                     <button onClick={() => handleMarkread(expectedBook)} className="btn btn-primary">Read</button>
-                    <button className="btn btn-primary">WishList</button>
+                    <button onClick={() => handleWishlist (expectedBook)} className="btn btn-primary">WishList</button>
                 </div>
             </div>
+            
         </div>
     );
 };
