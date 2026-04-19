@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { BookContext } from '../context/BookProvider';
+// import { BookContext } from '../context/BookProvider';
+
+
 
 const BookDetails = () => {
 
@@ -15,20 +19,12 @@ const BookDetails = () => {
     const { bookId, image, author, bookName, review, tags } = expectedBook;
 
 
-    const [storeBooks, setStoreBooks] = useState([]);
+
+     const {handleMarkread, storeBooks} = useContext(BookContext)
+     console.log(handleMarkread , storeBooks,"bookContext")
 
 
-    const handleMarkread = (currentBook) => {
 
-        console.log(currentBook);
-        const isexistBook = storeBooks.find((book) => book.bookId ===  currentBook.bookId);
-
-        if(isexistBook){
-            alert("The is all reddy")
-        }else{
-            setStoreBooks([...storeBooks, currentBook])
-        }
-    }
 
 
     return (
