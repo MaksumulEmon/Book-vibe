@@ -24,7 +24,7 @@ const Navbar = () => {
             <li>
                 <NavLink to="/list" className={({ isActive }) =>
                     `mx-3 ${isActive ? "border border-green-500 text-green-500" : ""}`
-                }> Home </NavLink>
+                }> Relod the page </NavLink>
 
             </li>
 

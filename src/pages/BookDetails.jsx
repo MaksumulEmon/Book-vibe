@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { BookContext } from '../context/BookProvider';
 // import { ToastContainer } from 'react-toastify';
@@ -16,7 +16,7 @@ const BookDetails = () => {
 
     const expectedBook = books.find((book) => book.bookId === Number(bookParamsId));
     // console.log(expectedBook)
-    const { bookId, image, author, bookName, review, tags } = expectedBook;
+    const {  image, author, bookName, review, tags } = expectedBook;
 
 
 

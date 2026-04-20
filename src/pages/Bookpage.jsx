@@ -8,20 +8,18 @@ import WishList from '../components/listedBooks/WishList';
 const Bookpage = () => {
     const { storeBooks, wishList } = useContext(BookContext);
     console.log(storeBooks, wishList, "bookContext")
-    
-    return (
-        <div className='max-w-7xl mx-auto '>
 
-            <div className='bg-gray-300 rounded-xl p-8 flex justify-center mb-10'>
-                <p className='font-bold text-3xl text-black'>Book</p>
+    return (
+        <div className='max-w-7xl mx-auto  '>
+
+            <div className='bg-gray-300 rounded-xl p-8 flex justify-center mb-10 mx-5 lg:mx-0'>
+                <p className='font-bold text-3xl text-black '>Book</p>
             </div>
 
 
 
 
-
-
-            <Tabs className='my-3'>
+            <Tabs className='my-3 mx-5 lg:mx-0'>
                 <TabList>
                     <Tab>Read Books</Tab>
                     <Tab>Wish Books</Tab>
