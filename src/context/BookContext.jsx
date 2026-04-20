@@ -9,7 +9,7 @@ export const BookProvider = ({ children }) => {
     const bookContext = useContext(BookContext)
     console.log(bookContext)
 
-    const [storeBooks, setStoreBooks] = useState([]);
+    const [readList, setReadList] = useState([]);
     const [wishList, setWishlist] = useState([]);
 
 
@@ -17,14 +17,14 @@ export const BookProvider = ({ children }) => {
 
     const handleMarkread = (currentBook) => {
         console.log(currentBook);
-        const isexistBook = storeBooks.find((book) => book.bookId === currentBook.bookId);
+        const isexistBook = readList.find((book) => book.bookId === currentBook.bookId);
 
         if (isexistBook) {
           
             toast.error(`${currentBook.bookName} is all ready added to read list`)
             // alert(`${currentBook.bookName} is all ready added to read list`)
         } else {
-            setStoreBooks([...storeBooks, currentBook])
+            setReadList([...readList, currentBook])
             // alert(`${currentBook.bookName} is Added !`)
             toast.success(`${currentBook.bookName} is Added`);
         }
@@ -34,7 +34,7 @@ export const BookProvider = ({ children }) => {
 
     const handleWishlist = (currentBook) => {
         // toast("The is all ready")
-        const isExistReadList = storeBooks.find((book) => book.bookId === currentBook.bookId);
+        const isExistReadList = readList.find((book) => book.bookId === currentBook.bookId);
 
         if (isExistReadList) {
             toast.error("This Book is already in read list")
@@ -57,7 +57,7 @@ export const BookProvider = ({ children }) => {
 
 
     const data = {
-        storeBooks, setStoreBooks, handleMarkread, handleWishlist, wishList, setWishlist
+        readList, setReadList, handleMarkread, handleWishlist, wishList, setWishlist
     };
 
 
